@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  background: radial-gradient(rgba(0, 0, 0, 0.966), #000);
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  margin-bottom: 60px;
+  color: transparent;
+  font-size: 60px;
+  -webkit-text-stroke: 2px green;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0px -5px 15px rgba(7, 128, 7, 0.616);
+
+  &::after {
+    content: "Password Validation";
+    position: absolute;
+    width: 630px;
+    top: 42px;
+    left: 0px;
+    transform: perspective(2000px) rotateX(240deg);
+    filter: blur(2px);
+  }
+}
+
+.dots p {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  box-shadow: 0px 0px 10px red;
+  margin-top: 18px;
+  border-radius: 50%;
+}
+
+.dots p:nth-child(2) {
+  margin-top: 30px;
+  background-color: green;
+  box-shadow: 0px 0px 10px green;
+}
+
+.dots p:nth-child(3) {
+  margin-top: 28px;
+}
+
+.dots p:nth-child(4) {
+  margin-top: 30px;
+}
+
+.dots p:nth-child(5) {
+  margin-top: 30px;
+}
+
+.dots p:nth-child(6) {
+  margin-top: 28px;
+}
+
+.flex {
+  color: #fff;
+  display: flex;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.validation p {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 25px;
+  text-decoration: line-through;
+}
+
+.validation p:nth-child(2) {
+  text-decoration: none;
+}
+
+input {
+  width: 500px;
+  margin-top: 40px;
+  height: 70px;
+  background-color: #000;
+  border: 2px solid green;
+  position: relative;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 20px;
+  padding: 0px 80px 0px 20px;
+  outline: none;
+  transition: 0.4s;
+}
+
+label {
+  position: relative;
+  transition: 0.4s;
+}
+
+span {
+  transition: 0.4s;
+  position: absolute;
+  top: -2px;
+  left: 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #888585;
+}
+
+.full {
+  margin: auto;
+}
+
+label input:focus ~ span,
+label input:valid ~ span {
+  position: absolute;
+  top: -37px;
+  border: 1px solid green;
+  color: #fff;
+  padding: 0px 10px;
+  border-radius: 30px;
+  background-color: #000;
+  left: 20px;
+}
+
+#showPass {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+#btn {
+  width: 400px;
+  height: 60px;
+  background-color: darkgreen;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 30px;
+  margin-top: 50px;
+  margin-left: 50px;
+  transition: 0.4s;
+  box-shadow: 0px 0px 10px #000, 0px 0px 20px rgba(27, 197, 27, 0.87);
+  border: 2px solid green;
+
+  &:hover {
+    filter: brightness(80%);
+    transform: scale(1.1);
+  }
+}
+
+ol {
+  position: absolute;
+  top: 190px;
+  left: 80px;
+  color: #fff;
+  width: 300px;
+  height: 450px;
+
+  li {
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-left: 10px;
+    /* border-bottom: 4px solid green; */
+    border-radius: 2px;
+    /* border-left: 4px solid green; */
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    position: relative;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent 70%,
+        green
+      );
+      border-radius: 2px;
+      z-index: -1;
+      translate: -5% -35%;
+      padding: 5px;
+      animation: spin 3s linear infinite;
+    }
+
+    &::before {
+      filter: blur(20px);
+    }
+
+    i {
+      color: red;
+      font-size: 20px;
+    }
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
